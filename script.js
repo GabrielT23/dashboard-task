@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const taskDiv = document.createElement("div");
         taskDiv.classList.add("task", task.completed ? "completed" : "incomplete");
         taskDiv.classList.add(`${task.priority}-priority`);
+        taskDiv.id = "div-"+task.priority
         taskDiv.innerHTML = `
           <div class="task-content-div"">
             <h3>${task.title}</h3>
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="complete-task-btn">${task.completed ? "Desmarcar" : "Marcar como Finalizada"}</button>
           </div>
           <button class="delete-task-btn"><i class="fas fa-trash"></i></button>
+          <i class="fas fa-check-circle completed-icon ${task.completed ? 'check-icon': 'check-icon-none'}"></i>
         `;
   
         const deleteBtn = taskDiv.querySelector(".delete-task-btn");
@@ -47,11 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
   
         const completeBtn = taskDiv.querySelector(".complete-task-btn");
-        completeBtn.addEventListener("click", () => {
+        completeBtn.addEventListener("click", (event) => {
           task.completed = !task.completed;
           saveTasks();
           renderTasks(filter);
         });
+        
+        
   
         taskList.appendChild(taskDiv);
       });
@@ -61,8 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const taskTitle = prompt("Digite o título da tarefa:");
       if (!taskTitle) return;
   
-      const taskPriority = prompt("Digite a prioridade da tarefa (alta, média, baixa):").toLowerCase();
-      if (!["alta", "média", "baixa"].includes(taskPriority)) {
+      const taskPriority = prompt("Digite a prioridade da tarefa (alta, media, baixa):").toLowerCase();
+      if (!["alta", "media", "baixa"].includes(taskPriority)) {
         alert("Prioridade inválida! Tarefa não adicionada.");
         return;
       }

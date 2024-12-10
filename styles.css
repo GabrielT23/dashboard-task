@@ -157,6 +157,7 @@
     position: relative;
     border-radius: 5px;
     max-width: 500px;
+    min-width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
   }
@@ -184,9 +185,27 @@
     background-color: #c8e6c9; /* Verde */
   }
   
+  #div-alta{
+    background-color: #d0502c; /* Amarelo */
+  }
+
+  #div-media{
+    background-color: #e6d139; /* Amarelo */
+  }
+
+  #div-baixa{
+    background-color: #86dc3b; /* Amarelo */
+  }
+
   .task h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .task p {
+
+    color: #fff;
   }
   
   .delete-task-btn {
@@ -258,3 +277,25 @@
         flex: 1;
       }
   }
+
+  .check-icon {
+    display: block; /* Inicialmente escondido */
+    color: #025006;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .check-icon-none {
+    display: none; /* Inicialmente escondido */
+    color: #025006;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  
